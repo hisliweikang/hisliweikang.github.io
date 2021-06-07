@@ -3,11 +3,11 @@
   <title>K &amp; Y</title>
   
   <subtitle>书读百遍，其义自见，境界到了，万物皆虚，万事皆允</subtitle>
-  <link href="https://github.com/hisliweikang/hisliweikang.github.io/atom.xml" rel="self"/>
+  <link href="https://hisliweikang.github.io/atom.xml" rel="self"/>
   
-  <link href="https://github.com/hisliweikang/hisliweikang.github.io/"/>
-  <updated>2021-05-15T11:38:43.096Z</updated>
-  <id>https://github.com/hisliweikang/hisliweikang.github.io/</id>
+  <link href="https://hisliweikang.github.io/"/>
+  <updated>2021-06-03T01:14:52.366Z</updated>
+  <id>https://hisliweikang.github.io/</id>
   
   <author>
     <name>jiangyifan</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>面向对象小谈</title>
-    <link href="https://github.com/hisliweikang/hisliweikang.github.io/2021/05/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%B0%8F%E8%B0%88/"/>
-    <id>https://github.com/hisliweikang/hisliweikang.github.io/2021/05/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%B0%8F%E8%B0%88/</id>
+    <link href="https://hisliweikang.github.io/2021/05/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%B0%8F%E8%B0%88/"/>
+    <id>https://hisliweikang.github.io/2021/05/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%B0%8F%E8%B0%88/</id>
     <published>2021-05-15T11:21:09.448Z</published>
-    <updated>2021-05-15T11:38:43.096Z</updated>
+    <updated>2021-06-03T01:14:52.366Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><h2 id="什么是面向对象？"><a href="#什么是面向对象？" class="headerlink" title="什么是面向对象？"></a>什么是面向对象？</h2><h3 id="对比面向过程，它们是两种不同的处理问题的角度。面向过程注重事情的步骤以及顺序，直接高效；面向对象注重事情有哪些参与者（对象），各自需要做什么，便于复用，扩展，维护。"><a href="#对比面向过程，它们是两种不同的处理问题的角度。面向过程注重事情的步骤以及顺序，直接高效；面向对象注重事情有哪些参与者（对象），各自需要做什么，便于复用，扩展，维护。" class="headerlink" title="对比面向过程，它们是两种不同的处理问题的角度。面向过程注重事情的步骤以及顺序，直接高效；面向对象注重事情有哪些参与者（对象），各自需要做什么，便于复用，扩展，维护。"></a>对比面向过程，它们是两种不同的处理问题的角度。面向过程注重事情的步骤以及顺序，直接高效；面向对象注重事情有哪些参与者（对象），各自需要做什么，便于复用，扩展，维护。</h3><hr><p><strong>封装</strong><br>明确标识出允许外部使用的所有函数以及数据项，外部无需修改或关注内部的实现；内部实现对外部透明：<br>1）javabean属性私有，提供get、set外部调用，因为私有属性或内部逻辑是由javabean决定的。<br>2）类似mybatis，hebbrilate这些持久层框架，操作数据库，我们一般直接拿来用就可以了（无需关心连接怎么建立，sql怎么执行）</p><hr><p><strong>继承</strong><br>继承父类的方法，子类去改变或扩展，子类的共有属性或方法直接使用父类的，无需自己再定义，只写自己的个性化</p><hr><p><strong>多态</strong><br>基于对象所属类的不同，外部对同一个方法的调用，实现逻辑不同，其中它和继承是一脉相承的，实现需要满足以下3点<br>1）继承  2）方法的重写  3）父类引用指向子类对象【可是无法调用子类特有功能】</p>]]></content>
     
@@ -34,14 +34,14 @@
     
     
     
-    <category term="java" scheme="https://github.com/hisliweikang/hisliweikang.github.io/tags/java/"/>
+    <category term="java" scheme="https://hisliweikang.github.io/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://github.com/hisliweikang/hisliweikang.github.io/2021/05/05/hello-world1/"/>
-    <id>https://github.com/hisliweikang/hisliweikang.github.io/2021/05/05/hello-world1/</id>
+    <link href="https://hisliweikang.github.io/2021/05/05/hello-world1/"/>
+    <id>https://hisliweikang.github.io/2021/05/05/hello-world1/</id>
     <published>2021-05-05T05:14:41.956Z</published>
     <updated>2021-05-05T05:19:34.268Z</updated>
     
@@ -56,14 +56,14 @@
     
     
     
-    <category term="随笔" scheme="https://github.com/hisliweikang/hisliweikang.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="https://hisliweikang.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://github.com/hisliweikang/hisliweikang.github.io/2021/05/04/hello-world/"/>
-    <id>https://github.com/hisliweikang/hisliweikang.github.io/2021/05/04/hello-world/</id>
+    <link href="https://hisliweikang.github.io/2021/05/04/hello-world/"/>
+    <id>https://hisliweikang.github.io/2021/05/04/hello-world/</id>
     <published>2021-05-04T12:15:18.525Z</published>
     <updated>2021-05-06T01:13:00.547Z</updated>
     
@@ -78,7 +78,7 @@
     
     
     
-    <category term="随笔" scheme="https://github.com/hisliweikang/hisliweikang.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="https://hisliweikang.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
