@@ -1,0 +1,420 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Spring小谈 | K &amp; Y</title><meta name="keywords" content="java"><meta name="author" content="jiangyifan"><meta name="copyright" content="jiangyifan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Spring1、概述spring是Java企业级应用的轻量级开源开发框架，针对快速并简化构建J2EE平台的web应用，通过POJO作为基础的编程模型以养成良好编码习惯。  2、作用和好处 轻量 控制反转 面向切面的编程（AOP） 容器 事务管理 异常处理   3、基本组成部分 Core Module: 核心容器（应用上下文）模块, 用到了Bean和Context模块， 提供spring框架的基础功">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring小谈">
+<meta property="og:url" content="https://hisliweikang.github.io/2020/03/01/Spring%E5%B0%8F%E8%B0%88/index.html">
+<meta property="og:site_name" content="K &amp; Y">
+<meta property="og:description" content="Spring1、概述spring是Java企业级应用的轻量级开源开发框架，针对快速并简化构建J2EE平台的web应用，通过POJO作为基础的编程模型以养成良好编码习惯。  2、作用和好处 轻量 控制反转 面向切面的编程（AOP） 容器 事务管理 异常处理   3、基本组成部分 Core Module: 核心容器（应用上下文）模块, 用到了Bean和Context模块， 提供spring框架的基础功">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img2.baidu.com/it/u=2641291816,3583989704&fm=253&fmt=auto&app=120&f=JPEG?w=888&h=500">
+<meta property="article:published_time" content="2020-02-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-08-25T05:31:53.453Z">
+<meta property="article:author" content="jiangyifan">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2.baidu.com/it/u=2641291816,3583989704&fm=253&fmt=auto&app=120&f=JPEG?w=888&h=500"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hisliweikang.github.io/2020/03/01/Spring%E5%B0%8F%E8%B0%88/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-08-25 13:31:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="K & Y" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><span> 音乐</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img2.baidu.com/it/u=2641291816,3583989704&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=888&amp;h=500')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">K &amp; Y</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><span> 音乐</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spring小谈</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-02-29T16:00:00.000Z" title="发表于 2020-03-01 00:00:00">2020-03-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-08-25T05:31:53.453Z" title="更新于 2021-08-25 13:31:53">2021-08-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Spring小谈"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h4 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a><strong>Spring</strong></h4><h5 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h5><p>spring是Java企业级应用的轻量级开源开发框架，针对快速并简化构建J2EE平台的web应用，通过POJO作为基础的编程模型以养成良好编码习惯。</p>
+<hr>
+<h5 id="2、作用和好处"><a href="#2、作用和好处" class="headerlink" title="2、作用和好处"></a>2、作用和好处</h5><ul>
+<li>轻量</li>
+<li>控制反转</li>
+<li>面向切面的编程（AOP）</li>
+<li>容器</li>
+<li>事务管理</li>
+<li>异常处理</li>
+</ul>
+<hr>
+<h5 id="3、基本组成部分"><a href="#3、基本组成部分" class="headerlink" title="3、基本组成部分"></a>3、基本组成部分</h5><ul>
+<li>Core Module: 核心容器（应用上下文）模块, 用到了Bean和Context模块， 提供spring框架的基础功能，Spring 框架建立在此模块之上， 它使 Spring 成为一个容器。<ul>
+<li>BeanFactory：利用工厂模式实现，同时提供反转控制，将配置和依赖从应用代码中分离开来，xmlBeanFactory是其中最常用的工厂类。<ul>
+<li>xmlBeanFactory：读取xml配置元数据，根据其定义动态加载beans，从而创建一个完全配置的应用和系统。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Bean~</li>
+<li>Context~</li>
+<li>Expression~</li>
+<li>JDBC ~：JDBC抽象和Dao模块使得数据库代码简洁，避免了由于数据关闭而导致的问题，在此之上还提供了统一的错误处理机制，利用Spring Aop为对象提供事务管理。</li>
+<li>ORM ~：对象/关系映射工具，目前主流的ORM框架是IBATIS SQL Maps和JDO。</li>
+<li>OXM ~：</li>
+<li>Java Message Service（JMS）~</li>
+<li>Transaction~</li>
+<li>Web ~：提供web应用上下文，支持多种面向web的任务，如透明处理多个上传文件和请求参数绑定到业务对象中</li>
+<li>Web-Servlet~</li>
+<li>Web-Struts~</li>
+<li>Web-Portlet~</li>
+</ul>
+<hr>
+<h5 id="4、-Spring-IOC-容器"><a href="#4、-Spring-IOC-容器" class="headerlink" title="4、 Spring IOC 容器"></a>4、 Spring IOC 容器</h5><ul>
+<li><p>作用：负责对对象进行创建，管理（依赖注入DI），装配，配置和管理对象生命周期</p>
+</li>
+<li><p>优点： </p>
+<ul>
+<li>轻量级，减少代码量</li>
+<li>便于测试（单元测试不需要单例＆JNDII查找机制）</li>
+<li>实现松散耦合</li>
+<li>支持饿汉式初始化和懒汉式加载</li>
+</ul>
+</li>
+<li><p>实现方式：</p>
+<ul>
+<li><p>filed注入方式：最常用的方式，直接使用@Autowird即可完成，缺点在于如果出现A依赖注入B，B也依赖注入A，不会在程序启动之前报错BeanCurrentlyInCreationException</p>
+</li>
+<li><p>构造器注入方式（强制依赖）：官方最推荐的最好的方案，优点就是可以在启动之前抛出循环依赖的报错，缺点代码量比较多，也不美观</p>
+<ul>
+<li><p>实现方式：</p>
+<pre><code>  @Controller
+  public class UserController &#123;
+    private final FooService fooService;
+
+    @Autowired
+    public FooController(FooService fooService) &#123;
+        this.fooService = fooService;
+    &#125;
+    //使用方式上同，略
+  &#125;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>setter注入方式（可选依赖）：容器调用无参构造器或无参 static 工厂方法实例化 bean 之后，调用该bean的setter方法，写法更加冗余，不美观，也不推荐</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="5、Spring-Beans"><a href="#5、Spring-Beans" class="headerlink" title="5、Spring Beans"></a>5、Spring Beans</h5><ul>
+<li>概念：beans是通过容器中配置的元数据创建出来，它可以以XML文件中<bean>…<bean/>对的形式定义。</li>
+<li>定义方式（Spring怎么提供配置元数据）<ul>
+<li>XML配置文件</li>
+<li>基于java的配置</li>
+<li>基于注解的配置</li>
+</ul>
+</li>
+<li>支持的bean的作用域<ul>
+<li>singleton: 单例，spring容器中只有一个实例，缺省scope时默认为singleton</li>
+<li>prototype：允许多个实例存在</li>
+<li>在基于 web 的 Spring ApplicationContext的作用域：<ul>
+<li>request：每次http请求都会创建一个bean</li>
+<li>session：在一个HttpSession中，一个bean定义对应一个实例</li>
+<li>global-session： 在全局的HttpSession中，一个bean定义对应一个实例</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>bean装配：<ul>
+<li>概念：Spring容器根据已有的依赖关系，通过依赖注入的方式将bean组装到一起的过程</li>
+<li>自动装配：Spring容器通过BeanFactory处理各个组装bean之间的协作，无需<constructor-arg>和<property>配置<ul>
+<li>装配方式（5种）：<bean name="xxx" autowire="XXX"></bean><pre><code> 1）no：默认不自动组装，需要通过显示调用
+ 2）byName：通过参数名自动装配，容器试图匹配、装配和该bean的属性具有相同名字的bean。实现原理将查找其类中所有的set方法名，例如setCat，获得将set去掉并且首字母小写的字符串，即cat。
+ 3）通过参数类型自动装配，前提是同一类型的对象，在spring容器中唯一。如果不唯一，会报NoUniqueBeanDefinitionException不唯一的异常。
+ 4）constructor：这个方式类似于 byType， 但是要提供给构造器参数，如果没有确定
+</code></pre>
+的带参数的构造器参数类型，将会抛出异常。<pre><code> 5）autodetect：首先尝试使用 constructor 来自动装配，如果无法工作，则使用byType方式。
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>注意：可以让Spring容器注入一个null和空字符串，不会报错报异常。</li>
+</ul>
+<hr>
+<h5 id="6、Spring-注解"><a href="#6、Spring-注解" class="headerlink" title="6、Spring 注解"></a>6、Spring 注解</h5><ul>
+<li>基于注解的容器配置：只需在类（接口），方法，属性等前面加入注解即可完成注入，无需使用xml表述bean装配关系的方式<ul>
+<li>开启方式：Spring中注解装配默认是不开启的，需要手动在Spring 配置文件中加入配置&lt;<a href="context:annotation-config">context:annotation-config</a>&gt;元素</li>
+</ul>
+</li>
+<li>常见的注解及其含义：<ul>
+<li>@Configuration：相当于定义一个bean</li>
+<li>@Bean：返回一个对象，将这个对象注入到Spring应用上下文</li>
+<li>@Component：</li>
+<li>@Required：被注解的bean属性如果未被设置值，则报错BeanInitializationException</li>
+<li>@Autowird：修改setter方法、构造器、属性或者具有任意名称和多个参数的PN方法，起到自动装载的作用</li>
+<li>@Qualifier：定义了多个相同类型的bean，spring容器不知道使用哪个的时候，可以用该注解+@Autowired结合取消混淆，指定使用所需装配的bean</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="7、Spring-数据访问"><a href="#7、Spring-数据访问" class="headerlink" title="7、Spring 数据访问"></a>7、Spring 数据访问</h5><ul>
+<li>SpringJDBC框架：更有效使用JDBC进行资源管理和错误处理。可以使用SpringJDBC提供的模板类JdbcTemplate来访问数据源。<ul>
+<li>JdbcTemplate：<ul>
+<li>将数据库数据转变为基本数据类型和对象</li>
+<li>执行已有的或可调用的数据库操作语句(sql语句)</li>
+<li>自定义数据错误处理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Spring事务的实现方式和原理：<ul>
+<li>实现方式：本质是通过数据库对事务的支持</li>
+<li>实现原理：数据库层的提交和回滚是通过binlog和redolog实现的</li>
+</ul>
+</li>
+<li>Spring事务管理类型：<ul>
+<li>编程式事务管理：允许通过代码控制事务管理，灵活性较强</li>
+<li>声明式事务管理：将业务代码和事务管理分离开来，只需使用注解和XML配置</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="8、Spring-面向切面编程（AOP）"><a href="#8、Spring-面向切面编程（AOP）" class="headerlink" title="8、Spring 面向切面编程（AOP）"></a>8、Spring 面向切面编程（AOP）</h5><ul>
+<li>概念：OOP允许开发者定义纵向关系，可并不适用定义横向关系，所以AOP可以说是作为面向对象的一种补充，用于将那些与业务无关，但却对多个对象产生影响的公共行为和逻辑，抽取并封装为一个可重用的模块，这个模块被命名为“切面”（Aspect）。</li>
+<li>优点和作用：<ul>
+<li>优点：<ul>
+<li>减少系统中的重复代码</li>
+<li>降低模块间的耦合度</li>
+<li>提高系统的可维护性</li>
+</ul>
+</li>
+<li>作用：用于权限认证、日志、事务处理等</li>
+</ul>
+</li>
+<li>AOP常见的名词解析：</li>
+<li>关注点：<ul>
+<li>横切关注点：比较特殊的关注点，通常指的是贯彻系统或应用的都需要用到的功能，如：日志、安全和数据传输。</li>
+</ul>
+</li>
+<li>连接点：在我们应用程序插入一个AOP切面的位置</li>
+<li>通知：程序执行时AOP框架触发的代码段<ul>
+<li>触发类型：<ol>
+<li>before：前置通知</li>
+<li>after：无论方法是否成功执行，都会调用的后置通知</li>
+<li>after-returning：执行成功时执行的通知</li>
+<li>after-throwing：抛异常时执行的通知</li>
+<li>around: before和after都会执行     </li>
+</ol>
+</li>
+</ul>
+</li>
+<li>切点：切入点是一个或一组连接点，通知将在这些位置执行，可以通过表达式或匹配的方式<br>指明切入点。</li>
+<li>目标对象：一个或多个被通知的对象</li>
+<li>代理：通知目标对象后创建的对象。对于客户端来说，代理对象和目标对象等价。</li>
+<li>织入：将切面应用到目标对象并创建的新的代理对象的过程。</li>
+<li>基于XML Schema方式的切面：由常规类以及基于XML的配置实现。</li>
+<li>基于注解的切面：基于@AspectJ的实现，声明切面的风格和java5标注的pojo类的风格一致。</li>
+</ul>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a></div><div class="post_share"><div class="social-share" data-image="https://img2.baidu.com/it/u=2641291816,3583989704&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=888&amp;h=500" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/05/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%B0%8F%E8%B0%88/"><img class="prev-cover" data-lazy-src="https://img2.baidu.com/it/u=3924745974,4264782546&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">面向对象小谈</div></div></a></div><div class="next-post pull-right"><a href="/2019/12/07/SpringBoot/"><img class="next-cover" data-lazy-src="https://img0.baidu.com/it/u=3427023388,387410003&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SpringBoot小谈</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/08/25/Kafka/" title="kafka"><img class="cover" data-lazy-src="https://img2.baidu.com/it/u=3919406383,1306450604&fm=26&fmt=auto&gp=0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-25</div><div class="title">kafka</div></div></a></div><div><a href="/2021/08/25/SpringMVC小谈/" title="SpringMVC小谈"><img class="cover" data-lazy-src="https://img0.baidu.com/it/u=3307796242,3988279254&fm=26&fmt=auto&gp=0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-25</div><div class="title">SpringMVC小谈</div></div></a></div><div><a href="/2021/06/20/Nginx小谈/" title="Nginx小谈"><img class="cover" data-lazy-src="https://img1.baidu.com/it/u=1930115958,3268927565&fm=26&fmt=auto&gp=0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-20</div><div class="title">Nginx小谈</div></div></a></div><div><a href="/2021/05/15/面向对象小谈/" title="面向对象小谈"><img class="cover" data-lazy-src="https://img2.baidu.com/it/u=3924745974,4264782546&fm=26&fmt=auto&gp=0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-15</div><div class="title">面向对象小谈</div></div></a></div><div><a href="/2019/12/07/SpringBoot/" title="SpringBoot小谈"><img class="cover" data-lazy-src="https://img0.baidu.com/it/u=3427023388,387410003&fm=26&fmt=auto&gp=0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-07</div><div class="title">SpringBoot小谈</div></div></a></div><div><a href="/2019/08/03/《幸福的婚姻》/" title="《幸福的婚姻》"><img class="cover" data-lazy-src="https://img0.baidu.com/it/u=1053481210,2492431952&fm=26&fmt=auto&gp=0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-08-03</div><div class="title">《幸福的婚姻》</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring"><span class="toc-number">1.</span> <span class="toc-text">Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">1、概述</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E4%BD%9C%E7%94%A8%E5%92%8C%E5%A5%BD%E5%A4%84"><span class="toc-number">1.2.</span> <span class="toc-text">2、作用和好处</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="toc-number">1.3.</span> <span class="toc-text">3、基本组成部分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81-Spring-IOC-%E5%AE%B9%E5%99%A8"><span class="toc-number">1.4.</span> <span class="toc-text">4、 Spring IOC 容器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%E3%80%81Spring-Beans"><span class="toc-number">1.5.</span> <span class="toc-text">5、Spring Beans</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6%E3%80%81Spring-%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.6.</span> <span class="toc-text">6、Spring 注解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7%E3%80%81Spring-%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE"><span class="toc-number">1.7.</span> <span class="toc-text">7、Spring 数据访问</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8%E3%80%81Spring-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B%EF%BC%88AOP%EF%BC%89"><span class="toc-number">1.8.</span> <span class="toc-text">8、Spring 面向切面编程（AOP）</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By jiangyifan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body></html>
